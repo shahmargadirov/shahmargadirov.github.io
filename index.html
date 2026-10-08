@@ -1,151 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./images/logo.png">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="./images/logo.png">
+        <link rel="stylesheet" href="styles.css">
 
-    <title>Shahmar Gadirov's Portfolio</title>
-    <style>
-        /* Simple Modern Styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        <title>Shahmar Gadirov's Portfolio</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">SHAHMAR.GADIROV</div>
+            <div class="status-badge"> My GitHub </div>
+        </header>
+        <main>
+            <section class="hero">
+                <h1>Sorry! I'm still working on this Portfolio 😅</h1>
+                <p> If you are seeing this, I'm still updating this portfolio with my past experience.</p>
+                <!-- <p>Welcome to my portfolio. Here are some projects i've worked on.</p> -->
+            </section>
 
-        body {
-            background-color: #f9f9fb;
-            color: #1d1d1f;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        header {
-            max-width: 1000px;
-            margin: 0 auto 60px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-        }
-
-        .status-badge {
-            background-color: #e3fcef;
-            color: #00875a;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .hero {
-            margin-bottom: 60px;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #686b77;
-            max-width: 600px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: #ffffff;
-            border: 1px solid #e1e4ea;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-        }
-
-        .card-placeholder {
-            background-color: #eceef2;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #a1a5b3;
-            font-weight: 500;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            margin-bottom: 8px;
-            font-size: 1.15rem;
-        }
-
-        .card-content p {
-            color: #686b77;
-            font-size: 0.95rem;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">SHAHMAR.GADIROV</div>
-        <!-- <div class="status-badge">✓ Cloudflare + GitHub Live</div> -->
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Sorry! I'm still working on this Portfolio 😅</h1>
-            <p> If you are seeing this, I'm still updating this portfolio with my past experience.</p>
-            <!-- <p>Welcome to my portfolio. Here are some projects i've worked on.</p> -->
-        </section>
-
-        <section class="grid">
-            <!-- Project 1 -->
-            <div class="card">
-                <div class="card-placeholder">Project Image </div>
-                <div class="card-content">
-                    <h3>PioGuide</h3>
-                    <p>iOS Campus Navigation & AI Academic Advising Application.</p>
+            <section class="grid">
+                <!-- Project 1 -->
+                <div class="card">
+                    <div class="card-placeholder">
+                        <img src="./images/projects/pioguide/thumbnail1.png" alt="PioGuide">
+                    </div>
+                    <div class="card-content">
+                        <h3>PioGuide</h3>
+                        <p>iOS Campus Navigation & AI Academic Advising Application.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Project 2 -->
-            <div class="card">
-                <div class="card-placeholder">Project Image Placeholder</div>
-                <div class="card-content">
-                    <h3>MOTORSPORT</h3>
-                    <p>Sim-Cade Racing, Vehicle Simulation + Detail goodness.</p>
+                <!-- Project 2 -->
+                <div class="card">
+                    <div class="card-placeholder">
+                        <img src="./images/projects/motorsport/thumbnail1.png" alt="MOTORSPORT">
+                    </div>
+                    <div class="card-content">
+                        <h3>MOTORSPORT</h3>
+                        <p>Sim-Cade Racing, Vehicle Simulation + Detail goodness.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
-
-</body>
+            </section>
+        </main>
+    </body>
 </html>
