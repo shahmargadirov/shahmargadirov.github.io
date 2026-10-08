@@ -27,13 +27,63 @@ header {
     letter-spacing: -0.5px;
 }
 
+.header-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
 .status-badge {
-    background-color: #e3fcef;
-    color: #00875a;
+    display: inline-block;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.status-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.status-badge:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.status-badge:focus-visible {
+    outline: 2px solid #1d1d1f;
+    outline-offset: 2px;
+}
+
+.status-badge--github {
+    background-color: #e3fcef;
+    color: #00875a;
+}
+
+.status-badge--github:hover {
+    background-color: #c6f6e0;
+    border-color: #00875a33;
+}
+
+.status-badge--linkedin {
+    background-color: #e8f4fc;
+    color: #0a66c2;
+}
+
+.status-badge--linkedin:hover {
+    background-color: #d0e8f7;
+    border-color: #0a66c233;
 }
 
 main {
@@ -71,6 +121,7 @@ main {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -78,6 +129,7 @@ main {
 }
 
 .card-placeholder {
+    position: relative;
     background-color: #eceef2;
     height: 308px;
     display: flex;
@@ -86,10 +138,26 @@ main {
     overflow: hidden;
 }
 
-.card-placeholder img {
+.card-placeholder .card-thumbnail {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-placeholder .card-logo {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 1;
+    max-height: 52px;
+    max-width: min(45%, 160px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
 }
 
 .card-content {
