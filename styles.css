@@ -203,8 +203,8 @@ main {
 
 .modal-content {
     position: relative;
-    width: min(900px, 90vw);
-    max-height: 85vh;
+    width: min(900px, vw);
+    max-height: 120vh;
     background: #303030;
     border-radius: 18px;
     padding: 12px;
