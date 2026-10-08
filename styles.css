@@ -177,22 +177,15 @@ main {
 
 .modal {
     display: flex;
-
     position: fixed;
     inset: 0;
-
     z-index: 1000;
-
     background: rgba(0, 0, 0, 0);
-
     justify-content: center;
     align-items: center;
-
     padding: 20px;
-
     visibility: hidden;
     opacity: 0;
-
     transition:
         opacity 0.3s ease,
         background-color 0.3s ease,
@@ -210,24 +203,16 @@ main {
 
 .modal-content {
     position: relative;
-
     width: min(900px, 90vw);
     max-height: 85vh;
-
     background: #303030;
-
     border-radius: 18px;
-
     padding: 12px;
-
     overflow: hidden;
-
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-
     /* Starting position */
     opacity: 0;
     transform: scale(0.92) translateY(15px);
-
     transition:
         opacity 0.3s ease,
         transform 0.3s ease;
@@ -246,20 +231,13 @@ main {
 /* -------------------------------- */
 
 .project-gallery {
-
     display: flex;
-
     gap: 10px;
-
     height: 235px;
-
     overflow-x: auto;
     overflow-y: hidden;
-
     scroll-behavior: smooth;
-
     scrollbar-width: thin;
-
     padding-bottom: 4px;
 }
 
@@ -267,21 +245,13 @@ main {
 /* Every image has the SAME HEIGHT */
 
 .project-gallery img {
-
     height: 100%;
-
     width: auto;
-
     flex: 0 0 auto;
-
     object-fit: cover;
-
     border-radius: 12px;
-
     border: 2px solid rgba(255, 255, 255, 0.65);
-
     cursor: pointer;
-
     transition:
         transform 0.2s ease,
         border-color 0.2s ease,
@@ -290,52 +260,36 @@ main {
 
 
 .project-gallery img:hover {
-
     transform: scale(1.02);
-
     border-color: white;
 }
 
 
 /* Selected image */
-
 .project-gallery img.selected {
-
     border-color: white;
-
-    box-shadow:
-        0 0 0 2px rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
 }
-
 
 /* -------------------------------- */
 /* Project Information               */
 /* -------------------------------- */
 
 .project-info {
-
     padding: 10px 4px 4px 4px;
-
     color: white;
 }
 
-
 .project-info h2 {
-
     font-size: 2rem;
-
     margin-bottom: 3px;
-
     font-weight: 700;
 }
 
 
 .project-info p {
-
     color: #d0d0d0;
-
     font-size: 0.9rem;
-
     line-height: 1.4;
 }
 
@@ -345,40 +299,25 @@ main {
 /* -------------------------------- */
 
 .close-button {
-
     position: absolute;
-
     top: 10px;
     right: 10px;
-
     z-index: 10;
-
     width: 32px;
     height: 32px;
-
     border: none;
-
     border-radius: 50%;
-
     background: rgba(255, 255, 255, 0.85);
-
     color: #333;
-
     font-size: 24px;
-
     line-height: 28px;
-
     cursor: pointer;
-
     transition:
         background 0.2s ease,
         transform 0.2s ease;
 }
 
-
 .close-button:hover {
-
     background: white;
-
     transform: scale(1.08);
 }
