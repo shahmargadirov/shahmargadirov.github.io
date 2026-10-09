@@ -20,18 +20,19 @@ html, body {
 
 .scroll-area {
     position: absolute;
-    inset: 12px 12px 12px 0;       /* top right bottom left */
+    inset: 12px 42px 0px 0px;       /* top right bottom left */
     overflow-y: auto;
 }
 
 /* Scrollbar (replaces the html { ... } scrollbar rules) */
 .scroll-area::-webkit-scrollbar         { width: 5px; }
-.scroll-area::-webkit-scrollbar-track   { background: transparent; }
+.scroll-area::-webkit-scrollbar-track   { 
+    background: transparent; 
+    margin-top: 70px;
+    margin-bottom:20px;
+}
 .scroll-area::-webkit-scrollbar-thumb   { background: #c4c8d0; border-radius: 3px; }
 
-html::-webkit-scrollbar {
-    width: 3px;                        /* was 10px; try 4px for very thin */
-}
 
 * {
     box-sizing: border-box;
@@ -69,7 +70,7 @@ h1 {
     --fade-color: #151719;   /* must match the body background */
     --fade-width: 56px;
     position: relative;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /* The scroller */
@@ -88,7 +89,7 @@ h1 {
 .gallery img {
     flex: 0 0 auto;                        /* keep each image at its own width */
     width: auto;
-    height: 370px;
+    height: 450px;
     border-radius: 12px;
     scroll-snap-align: start;              /* each photo snaps into place */
 }
