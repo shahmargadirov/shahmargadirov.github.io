@@ -1,57 +1,222 @@
+/* ==========================================================================
+   MOTORSPORT project page
+   1. Base
+   2. Page layout
+   3. Scrolling gallery (top of page)
+   4. Hero
+   5. Content sections
+   6. Screenshot grid
+   7. Responsive
+   ========================================================================== */
+
+
+/* 1. Base
+   ========================================================================== */
+
+html, body {
+    height: 100%;
+    overflow: hidden;              /* the page itself no longer scrolls */
+}
+
+.scroll-area {
+    position: absolute;
+    inset: 12px 42px 0px 0px;       /* top right bottom left */
+    overflow-y: auto;
+}
+
+/* Scrollbar (replaces the html { ... } scrollbar rules) */
+.scroll-area::-webkit-scrollbar         { width: 5px; }
+.scroll-area::-webkit-scrollbar-track   { 
+    background: transparent; 
+    margin-top: 70px;
+    margin-bottom:20px;
+}
+.scroll-area::-webkit-scrollbar-thumb   { background: #c4c8d0; border-radius: 3px; }
+
 
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
-    background: #1e1e1e;
-    color: #f5f5f7;
+    background: #151719;
+    color: #f5f5f5;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
 }
-.project-page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 28px 50px;
-}
-.project-hero {
-    padding-bottom: 28px;
-    border-bottom: 1px solid #444;
-}
-.project-logo {
-    display: block;
-    max-width: 220px;
-    max-height: 75px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 18px;
-}
+
 h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.15;
     margin: 0 0 8px;
 }
+
+
+/* 2. Page layout
+   ========================================================================== */
+.project-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 28px 50px;
+}
+
+
+/* 3. Scrolling gallery
+   ========================================================================== */
+
+/* Wrapper: holds the fade overlays */
+.project-thumbnail {
+    --fade-color: #151719;   /* must match the body background */
+    --fade-width: 56px;
+    position: relative;
+    margin-top: 10px;
+}
+
+/* The scroller */
+.gallery {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 12px;                  /* room for the scrollbar */
+    overflow-x: auto;                      /* scroll sideways */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;                 /* Firefox */
+    scrollbar-color: #c4c8d0 transparent;
+}
+
+.gallery img {
+    flex: 0 0 auto;                        /* keep each image at its own width */
+    width: auto;
+    height: 450px;
+    border-radius: 12px;
+    scroll-snap-align: start;              /* each photo snaps into place */
+}
+
+.gallery .linkedin-embed {
+    flex: 0 0 auto;                /* never shrink */
+    width: 504px;
+    height: 450px;                 /* same as the gallery images */
+    scroll-snap-align: start;
+}
+
+.gallery .linkedin-embed iframe {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+}
+
+/* Scrollbar (Chrome / Safari / Edge) */
+.gallery::-webkit-scrollbar          { height: 8px; }
+.gallery::-webkit-scrollbar-thumb    { background: #c4c8d0; border-radius: 4px; }
+.gallery::-webkit-scrollbar-track    { background: transparent; }
+
+/* Edge fades: two overlays drawn on top of the wrapper */
+.project-thumbnail::before,
+.project-thumbnail::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 20px;                          /* stops above the scrollbar */
+    width: calc(var(--fade-width) + 1px);  /* +1px overlap hides the edge sliver */
+    z-index: 2;
+    pointer-events: none;                  /* clicks and swipes pass through */
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.project-thumbnail::before {
+    left: -1px;
+    background: linear-gradient(to right, var(--fade-color), transparent);
+}
+
+.project-thumbnail::after {
+    right: -1px;
+    background: linear-gradient(to left, var(--fade-color), transparent);
+}
+
+/* Classes toggled by motorsport.js */
+.project-thumbnail.can-scroll-left::before  { opacity: 1; }
+.project-thumbnail.can-scroll-right::after  { opacity: 1; }
+
+
+/* 4. Hero
+   ========================================================================== */
+.project-hero {
+    padding-bottom: 28px;
+    border-bottom: 1px solid #414448;
+}
+
+.project-logo {
+    display: block;
+    max-width: 700px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin-top: 18px;
+    margin-bottom: 5px;
+}
+
 .project-subtitle {
-    color: #c4c4c8;
+    color: #b8bdc3;
     font-size: 1.05rem;
     margin: 0 0 16px;
 }
+
 .project-intro {
-    color: #dedee2;
+    color: #d7d9dc;
     max-width: 720px;
 }
+
+
+/* 5. Content sections
+   ========================================================================== */
 .project-section {
     padding-top: 28px;
 }
+
 .project-section h2 {
     font-size: 1.45rem;
     margin: 0 0 12px;
 }
+
 .project-section p {
-    color: #d0d0d5;
+    color: #c9cdd1;
     margin: 0 0 14px;
 }
+
+
+/* 6. Screenshot grid
+   ========================================================================== */
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 18px;
+}
+
+.screenshot-grid figure {
+    min-width: 0;
+    margin: 0;
+}
+
+.screenshot-grid img {
+    display: block;
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    object-position: top;
+    border-radius: 10px;
+    background: #24272a;
+}
+
+.screenshot-grid figcaption {
+    color: #b8bdc3;
+    font-size: 0.9rem;
+    padding-top: 8px;
+}
+
 .linkedin-embed {
     width: 100%;
     display: flex;
@@ -63,41 +228,22 @@ h1 {
     display: block;
     width: 100%;
     max-width: 504px;
-    height: 1593px;
+    height: auto;
     border: none;
     background: #fff;
 }
-.screenshot-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-    gap: 18px;
-}
-.screenshot-grid figure {
-    min-width: 0;
-    margin: 0;
-}
-.screenshot-grid img {
-    display: block;
-    width: 100%;
-    max-height: 380px;
-    object-fit: contain;
-    object-position: top;
-    border-radius: 10px;
-    background: #292929;
-}
-.screenshot-grid figcaption {
-    color: #bdbdc4;
-    font-size: 0.9rem;
-    padding-top: 8px;
-}
+
+
+/* 7. Responsive
+   ========================================================================== */
 @media (max-width: 600px) {
     .project-page {
         padding: 55px 16px 35px;
     }
+
     .project-logo {
-        max-width: 175px;
-    }
-    .linkedin-embed iframe {
-        height: 1593px;
+        max-width: 190px;
     }
 }
+
+
