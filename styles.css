@@ -190,8 +190,8 @@ main {
 }
 .close-button {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 25px;
+    right: 25px;
     z-index: 10;
     display: grid;
     place-items: center;
@@ -238,9 +238,9 @@ main {
         border-radius: 14px;
     }
 }
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
-}
+} */
