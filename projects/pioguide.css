@@ -73,6 +73,10 @@ h1 {
     margin-top: 10px;
 }
 
+.h6 {
+    margin-top:-20px;
+}
+
 /* The scroller */
 .gallery {
     display: flex;

@@ -70,7 +70,7 @@ h1 {
     --fade-color: #151719;   /* must match the body background */
     --fade-width: 56px;
     position: relative;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 /* The scroller */
@@ -127,6 +127,11 @@ h1 {
 .project-thumbnail.can-scroll-left::before  { opacity: 1; }
 .project-thumbnail.can-scroll-right::after  { opacity: 1; }
 
+.project-thumbnail h6 {
+    margin-top:-5px;
+    font-size: 10px;
+    font-weight: lighter;
+}
 
 /* 4. Hero
    ========================================================================== */
