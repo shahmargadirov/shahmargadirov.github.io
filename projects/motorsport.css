@@ -128,9 +128,11 @@ h1 {
 .project-thumbnail.can-scroll-right::after  { opacity: 1; }
 
 .project-thumbnail h6 {
-    margin-top:-5px;
-    font-size: 10px;
-    font-weight: lighter;
+    margin-top:-10px;
+    font-size: 7%;
+    font-weight:lighter;
+    font-style: italic;
+    color: gray;
 }
 
 /* 4. Hero
@@ -147,7 +149,6 @@ h1 {
     width: auto;
     height: auto;
     object-fit: contain;
-    margin-top: 18px;
     margin-bottom: 5px;
 }
 
@@ -176,9 +177,27 @@ h1 {
 
 .project-section p {
     color: #c9cdd1;
-    margin: 0 0 14px;
+    margin: 0    0 14px;
+    font-size: 15px;
 }
 
+.media-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Large video takes 2 parts, small ones take 1 part each */
+  grid-template-rows: 1fr 1fr;        /* Two equal rows */
+  gap: 16px;                          /* Spacing between items */
+  width: 100%;
+  max-width: 1200px;                  /* Limits max width on large screens */
+  margin: 0 auto;
+}
+.media-item img,
+.media-item video {
+  width: 1%;
+  height: 1%;
+  object-fit: cover;                  /* Crops neatly without stretching */
+  border-radius: 8px;                 /* Optional: rounded corners */
+  display: block;
+}
 
 /* 6. Screenshot grid
    ========================================================================== */
@@ -208,6 +227,8 @@ h1 {
     font-size: 0.9rem;
     padding-top: 8px;
 }
+
+
 
 
 /* 7. Responsive
