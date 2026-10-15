@@ -168,6 +168,8 @@ h1 {
    ========================================================================== */
 .project-section {
     padding-top: 28px;
+        border-bottom: 1px solid #414448;
+
 }
 
 .project-section h2 {
@@ -181,23 +183,27 @@ h1 {
     font-size: 15px;
 }
 
+
 .media-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr; /* Large video takes 2 parts, small ones take 1 part each */
-  grid-template-rows: 1fr 1fr;        /* Two equal rows */
-  gap: 16px;                          /* Spacing between items */
-  width: 100%;
-  max-width: 1200px;                  /* Limits max width on large screens */
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, auto);
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.media-item img,
-.media-item video {
-  width: 1%;
-  height: 1%;
-  object-fit: cover;                  /* Crops neatly without stretching */
-  border-radius: 8px;                 /* Optional: rounded corners */
-  display: block;
+
+.media-grid img,
+.media-grid video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
 }
+
 
 /* 6. Screenshot grid
    ========================================================================== */
